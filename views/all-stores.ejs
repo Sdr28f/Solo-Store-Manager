@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL STORES</title>
+</head>
+<body>
+    <%- include('navbar') %>
+    <h1>ALL STORES</h1>
+
+    <% allStores.forEach((oneStore)=>{ %>
+        <p>businessName: <%= oneStore.businessName %></p>
+        <p>category: <%= oneStore.category %></p>
+        <p>description: <%= oneStore.description %></p>
+        <p>contactUs: <%= oneStore.contactUs %></p>
+        <p>isActive: <%= oneStore.isActive %></p>
+
+        <a href="/stores/<%= oneStore._id %>">See Details</a>
+
+    <% }) %>
+    
+</body>
+</html>

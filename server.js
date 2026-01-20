@@ -10,6 +10,7 @@ const session = require('express-session');
 const isSignedIn = require("./middleware/is-signed-in.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
 const methodOverride = require('method-override')
+const storeRoutes = require('./controllers/store.routes.js')
 
 app.use(express.static('public')) // my app will serve all static files from public folder
 app.use(express.urlencoded({ extended: false }));
@@ -65,6 +66,8 @@ connectToDB() // connect to database
 // Routes go here
 app.use('/auth',authController)
 app.use('/',indexController)
+app.use('/stores',storeRoutes)
+
 
 
 // PROTECTED ROUTES:
