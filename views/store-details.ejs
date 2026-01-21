@@ -13,6 +13,11 @@
     <p>description: <%= foundStore.description %></p>
     <p>contactUs: <%= foundStore.contactUs %></p>
     <p>isActive: <%= foundStore.isActive %></p>
+
+    <form action="/stores/delete/<%= foundStore._id %>" method="post">
+        <button type="submit">Delete Store</button>
+    </form>
+    <a href="/stores/<%= foundStore._id %>/edit">Edit Store</a>
     
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Store</title>
+</head>
+<body>
+    <h1>Edit: <%= editStore.businessName %></h1>
+
+    <form action="/stores/update/<%= editStore._id %>" method="post">
+
+        <label for="businessName">businessName:</label>
+        <input type="string" name="businessName" id="businessName" value="<%= editStore.businessName %>">
+
+        <label for="category">category:</label>
+        <input type="text" name="category" id="category" value="<%= editStore.category %>">
+
+        <label for="description">description:</label>
+        <input type="text" name="description" id="description" value="<%= editStore.description %>">
+
+        <label for="contactUs">contactUs:</label>
+        <input type="text" name="contactUs" id="contactUs" value="<%= editStore.contactUs %>">
+
+        <label for="isActive">isActive:</label>
+        <input type="checkbox" name="isActive" id="isActive" <%= editStore.isActive ? 'checked' : '' %> >
+        <button type="submit">Update Store</button>
+        <a href="/stores/<%= editStore._id %>">Cancel</a>
+    </form>
+    
+</body>
+</html>
