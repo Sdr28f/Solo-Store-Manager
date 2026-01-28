@@ -19,5 +19,10 @@
     </form>
     <a href="/stores/<%= foundStore._id %>/edit">Edit Store</a>
     
+    <h2>All Products for <%= foundStore.businessName %></h2>
+    <% allProducts.forEach((oneProduct)=>{ %>
+        <p><%= oneProduct.name %></p>
+        <a href="/products/<%= oneProduct._id %>">See Details</a>
+    <% }) %>
 </body>
 </html>

@@ -1,5 +1,7 @@
 const router = require('express').Router();
+const Product = require('../models/product');
 const Store = require('../models/store')
+const isSignedIn = require('../middleware/is-signed-in')
 
 /// READ PART 1
 router.get('/',async(req,res)=>{
@@ -9,11 +11,11 @@ router.get('/',async(req,res)=>{
 
 
 /// CREATE 
-router.get('/new',(req,res)=>{
+router.get('/new', isSignedIn,(req,res)=>{
     res.render('create-store.ejs');
 })
 
-router.post('/',async(req,res)=>{
+router.post('/', isSignedIn,async(req,res)=>{
    try{
      const createdStore = await Store.create(req.body);
     res.redirect('/Stores')
@@ -26,7 +28,8 @@ router.post('/',async(req,res)=>{
 /// READ PART 2
 router.get('/:id',async(req,res)=>{
     const foundStore = await Store.findById(req.params.id)
-    res.render('store-details.ejs',{foundStore:foundStore})
+    const allProducts = await Product.find({Store:req.params.id })
+    res.render('store-details.ejs',{foundStore:foundStore,allProducts})
 })
 
 /// DELETE

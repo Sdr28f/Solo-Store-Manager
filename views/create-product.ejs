@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+</head>
+<body>
+        <%- include('navbar') %>
+    <h1>Create Product</h1>
+
+    <form action="/products" method="post">
+
+        <label for="name">name:</label>
+        <input type="text" name="name" id="name">
+
+          <label for="price">price:</label>
+        <input type="number" name="price" id="price">
+
+          <label for="quantity">quantity:</label>
+        <input type="number" name="quantity" id="quantity">
+
+          <label for="description">description:</label>
+        <input type="text" name="description" id="description">
+
+          <label for="brand">brand:</label>
+        <input type="text" name="brand" id="brand">
+
+          <label for="category">category:</label>
+        <input type="text" name="category" id="category">
+
+        <select name="Store" id="">
+            <% allStores.forEach((oneStore)=>{%>
+                <option value= "<%=oneStore._id%>"><%= oneStore.businessName %></option>
+
+                <% })  %>
+        </select>
+        <button type="submit">Create Product</button>
+
+
+    </form>
+    
+</body>
+</html>

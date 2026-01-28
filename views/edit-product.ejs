@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit: <%= editProduct.name %></h1>
+    <form action="products/update/<%= editProduct._id %>" method="post">
+        <label for="name"></label>
+        <input type="text" name="name" id="name" value="<%= editProduct.name %>">
+
+        <label for="price">price:</label>
+        <input type="number" name="price" id="price" value="<%= editProduct.price %>">
+
+        <label for="description">description:</label>
+        <input type="text" name="description" id="description" value="<%= editProduct.description %>">
+
+        <label for="quantity">quantity:</label>
+        <input type="number" name="quantity" id="quantity" value="<%= editProduct.quantity %>"> 
+
+         <label for="brand">brand:</label>
+        <input type="text" name="brand" id="brand" value="<%= editProduct.brand %>"> 
+
+         <label for="category">category:</label>
+        <input type="text" name="category" id="category" value="<%= editProduct.category %>">
+        <button type="submit">Update Product</button>
+    </form>
+    
+</body>
+</html>

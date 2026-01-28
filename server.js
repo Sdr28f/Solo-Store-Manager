@@ -11,6 +11,7 @@ const isSignedIn = require("./middleware/is-signed-in.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
 const methodOverride = require('method-override')
 const storeRoutes = require('./controllers/store.routes.js')
+const productRoutes = require('./controllers/product.routes.js')
 
 app.use(express.static('public')) // my app will serve all static files from public folder
 app.use(express.urlencoded({ extended: false }));
@@ -67,6 +68,7 @@ connectToDB() // connect to database
 app.use('/auth',authController)
 app.use('/',indexController)
 app.use('/stores',storeRoutes)
+app.use('/products',productRoutes)
 
 
 
