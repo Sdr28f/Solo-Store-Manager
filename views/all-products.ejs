@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All products</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>All Products</h1>
+     <nav>
+    <div id="destinations">
+        <p id="logo">Store Manager</p>
+        <a href="/stores">All Stores</a>
+    </div>
+    </nav>
+     
+    <div class="page-container">
+        <div class="wider-card">
+                <h1>All Products</h1>
     <% allProducts.forEach((oneProduct)=>{%>
-
+        <div class="product-item">
+            <% if(oneProduct.image) { %>
+           <div class="img-preview-box">
+                 <img src="<%= oneProduct.image %>" class="product-img">
+           </div>
+           <% } else{ %>
+                    <span class="no-image-text">No Photo</span>
+                    <% } %>
         <p>name: <%= oneProduct.name %></p>
         <p>price: <%= oneProduct.price %></p>
         <p>quantity: <%= oneProduct.quantity %></p>
@@ -16,9 +33,18 @@
         <p>brand: <%= oneProduct.brand %></p>
         <p>category: <%= oneProduct.category %></p>
 
-        <a href="/products/<%= oneProduct._id %>">See Details</a>
+        <div class="details-link-box">
+            <a href="/products/<%= oneProduct._id %>">See Details</a>
+        </div>
+
+
+
+        </div>
+        <hr class="product-divider">
 
         <% })  %>
+        </div>
+    </div>
     
 </body>
 </html>

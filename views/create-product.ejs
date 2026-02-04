@@ -4,17 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Product</title>
+     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-        <%- include('navbar') %>
-    <h1>Create Product</h1>
+    <nav>
+    <div id="destinations">
+        <p id="logo">Store Manager</p>
+        <a href="/stores">All Stores</a>
+        <a href="/products">All Products</a>
+    </div>
+    <div class="action">
+       <a href="/auth/sign-out"><button>LogOut</button></a>
+    </div>
+    </nav>
+   
+   
+        <div class="page-container">
+          <div class="form-card">
+             <h1>Create Product</h1>
 
     <form action="/products" method="post">
+
+      <div class="img-preview-box">
+        <span class="no-image-text">No Image Selected</span>
+      </div>
 
         <label for="name">name:</label>
         <input type="text" name="name" id="name">
 
-          <label for="price">price:</label>
+          <label for="price">price(BD):</label>
         <input type="number" name="price" id="price">
 
           <label for="quantity">quantity:</label>
@@ -35,10 +53,18 @@
 
                 <% })  %>
         </select>
+
+        <div class="form-group">
+          <label for="image">Product Image Url</label>
+          <input type="text" name="image" id="image" placeholder="place image link here"> 
+        </div>
+       
         <button type="submit">Create Product</button>
 
 
     </form>
+          </div>
+        </div>
     
 </body>
 </html>

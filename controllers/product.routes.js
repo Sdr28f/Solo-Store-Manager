@@ -9,7 +9,7 @@ const Store = require('../models/store')
 //read
 
 router.get('/',async(req,res)=>{
-    const allProducts =   await Product.find().populate('Store');
+    const allProducts =   await Product.find({owner: req.session.user._id}).populate('Store');
     console.log('all products');
     res.render('all-products.ejs',{allProducts:allProducts});
 });
@@ -18,7 +18,7 @@ router.get('/',async(req,res)=>{
 /// CREATE
 
 router.get('/new',async(req,res)=>{
-    const allStores = await Store.find();
+    const allStores = await Store.find({owner:req.session.user._id});
     res.render('create-product.ejs',{allStores:allStores});
 });
 

@@ -4,22 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALL STORES</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <%- include('navbar') %>
-    <h1>ALL STORES</h1>
+  <nav>
+    <div id="destinations">
+        <p id="logo">Store Manager</p>
+        <a href="/stores">All Stores</a>
+    </div>
+    <div id="actions">
+        <a href="/stores/new">Create Store</a>
+        <a href="/auth/sign-out"><button>LogOut</button></a>
+    </div>
 
-    <% allStores.forEach((oneStore)=>{ %>
-        <p>businessName: <%= oneStore.businessName %></p>
-        <p>category: <%= oneStore.category %></p>
-        <p>description: <%= oneStore.description %></p>
-        <p>contactUs: <%= oneStore.contactUs %></p>
-        <p>isActive: <%= oneStore.isActive %></p>
+  </nav>
+    <h1 style="text-align: center; margin-top: 20px;">All Stores</h1>
 
-        <a href="/stores/<%= oneStore._id %>">See Details</a>
-        <a href="/products/new">Add Product</a>
+    <main id="stores-grid">
+        <% allStores.forEach((oneStore)=>{%>
 
-    <% }) %>
+            <div class="card">
+
+                <div class="img-placeholder">
+                     <% if(oneStore.image) { %>
+           
+                 <img src="<%= oneStore.image %>" class="product-img" alt="Store-Logo">
+           
+              <% } else{ %>
+                <p><%= oneStore.category %></p>
+                    <% } %>
+                    
+                </div>
+
+             <div class="card-content">
+                 <h3><%= oneStore.businessName %></h3>
+                  <p><%= oneStore.description %></p>
+
+            
+                  <div class="card-footer">
+                  <a href="/stores/<%= oneStore._id %>" class="btn-details">View Details</a>
+                   <a href="/products/new" class="btn-details">Add Product</a>
+                   </div>
+
+                </div>
+            </div>
+           
+
+
+            
+
+           
+
+            <% })  %>
+    </main>
+ 
     
 </body>
 </html>

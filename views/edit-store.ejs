@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Store</title>
+       <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Edit: <%= editStore.businessName %></h1>
+     <nav>
+    <div id="destinations">
+        <p id="logo">Store Manager</p>
+        <a href="/stores">All Stores</a>
+    </div>
+    </nav>
+    <div class="page-container">
+        <div class="form-card" id="edit-form-container">
+             <h1>Edit: <%= editStore.businessName %></h1>
 
     <form action="/stores/update/<%= editStore._id %>" method="post">
 
@@ -25,8 +34,10 @@
         <label for="isActive">isActive:</label>
         <input type="checkbox" name="isActive" id="isActive" <%= editStore.isActive ? 'checked' : '' %> >
         <button type="submit">Update Store</button>
-        <a href="/stores/<%= editStore._id %>">Cancel</a>
+        <a href="/stores/<%= editStore._id %>" class="btn-cancel">Cancel</a>
     </form>
     
+        </div>
+    </div>
 </body>
 </html>

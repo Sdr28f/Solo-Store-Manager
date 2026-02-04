@@ -4,11 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <%- include('navbar') %>
+          <nav>
+    <div id="destinations">
+        <p id="logo">Store Manager</p>
+        <a href="/stores">All Stores</a>
+        <a href="/products">All Products</a>
+    </div>
+    <div class="action">
+    <a href="/auth/sign-up">Sign up</a>
+    <a href="/auth/sign-in">Login</a>
+    </div>
+    </nav>
 
-    <h1>Welcome to my Website</h1>
+    <div class="page-container">
+        <div class="form-card">
+            <h1>Welcome to Vendorify</h1>
+
+            <p class="home-intro">
+                This website is a place where you can create your own store and list product for sell.
+                It helps you manage your business and keep track of everything in one place.
+
+            </p>
+
+            <div class="card-footer">
+                <a href="/stores" class="btn-details">Go To Store</a>
+            </div>
+
+            <div class="home-decoration">
+                <p>Start your online selling journey today.</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
 
 </body>
 </html>

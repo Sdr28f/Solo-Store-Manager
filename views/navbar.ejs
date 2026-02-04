@@ -8,6 +8,11 @@
 
     <% } %>
 
-    <a href="/stores/new">Create Store</a>
+   
+</div>
+<% if(user) { %>
+<div class="admin-access">
+      <a href="/stores/new">Create Store</a>
     <a href="/stores">All Stores</a>
 </div>
+<% } %>

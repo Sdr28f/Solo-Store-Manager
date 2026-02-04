@@ -5,7 +5,7 @@ const isSignedIn = require('../middleware/is-signed-in')
 
 /// READ PART 1
 router.get('/',async(req,res)=>{
-    const allStores = await Store.find();
+    const allStores = await Store.find({owner:req.session.user._id});
     res.render('all-stores.ejs',{allStores:allStores})
 });
 
@@ -16,6 +16,14 @@ router.get('/new', isSignedIn,(req,res)=>{
 })
 
 router.post('/', isSignedIn,async(req,res)=>{
+    if(req.body.isActive === 'on'){
+        req.body.isActive = true
+    }else{
+        req.body.isActive = false
+    }
+
+    req.body.owner = req.session.user._id;
+    
    try{
      const createdStore = await Store.create(req.body);
     res.redirect('/Stores')

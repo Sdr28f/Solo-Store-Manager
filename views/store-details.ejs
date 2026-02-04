@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>See Details</title>
+     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Store Details</h1>
+      <nav>
+    <div id="destinations">
+        <p id="logo">Store Manager</p>
+        <a href="/stores">All Stores</a>
+    </div>
+    </nav>
+    <div class="page-container">
+        <div class="form-card">
+             <h1>Store Details</h1>
 
     <p>businessName: <%= foundStore.businessName %></p>
     <p>category: <%= foundStore.category %></p>
@@ -14,15 +23,30 @@
     <p>contactUs: <%= foundStore.contactUs %></p>
     <p>isActive: <%= foundStore.isActive %></p>
 
-    <form action="/stores/delete/<%= foundStore._id %>" method="post">
-        <button type="submit">Delete Store</button>
+    <div class="card-footer">
+          <form action="/stores/delete/<%= foundStore._id %>" method="post">
+        <button type="submit" class="btn-delete">Delete Store</button>
     </form>
     <a href="/stores/<%= foundStore._id %>/edit">Edit Store</a>
     
+    </div>
+
+    <div class="product-list">
+        
     <h2>All Products for <%= foundStore.businessName %></h2>
     <% allProducts.forEach((oneProduct)=>{ %>
-        <p><%= oneProduct.name %></p>
+        <div class="product-item">
+                 <p><%= oneProduct.name %></p>
         <a href="/products/<%= oneProduct._id %>">See Details</a>
+    
+        </div>
+        
     <% }) %>
+    </div>
+
+  
+        </div>
+    </div>
+   
 </body>
 </html>

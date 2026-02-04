@@ -17,6 +17,8 @@ const productSchema = new mongoose.Schema({
 
     category:String,
 
+    image:String,
+
     Store:{
         type:mongoose.Schema.Types.ObjectId,
         ref:('Store') 

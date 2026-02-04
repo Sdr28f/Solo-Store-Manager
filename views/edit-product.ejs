@@ -3,15 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit</title>
+      <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Edit: <%= editProduct.name %></h1>
-    <form action="products/update/<%= editProduct._id %>" method="post">
+         <nav>
+    <div id="destinations">
+        <p id="logo">Store Manager</p>
+        <a href="/stores">All Stores</a>
+        <a href="/products">All Products</a>
+    </div>
+    <div class="action">
+       <a href="/auth/sign-out"><button>LogOut</button></a>
+    </div>
+    </nav>
+    <div class="page-container">
+        <div class="form-card" id="product-edit-container">
+            <h1>Edit: <%= editProduct.name %></h1>
+    <form action="/products/update/<%= editProduct._id %>" method="post">
         <label for="name"></label>
         <input type="text" name="name" id="name" value="<%= editProduct.name %>">
 
-        <label for="price">price:</label>
+        <label for="price">price(BD):</label>
         <input type="number" name="price" id="price" value="<%= editProduct.price %>">
 
         <label for="description">description:</label>
@@ -25,8 +38,12 @@
 
          <label for="category">category:</label>
         <input type="text" name="category" id="category" value="<%= editProduct.category %>">
+
+        
         <button type="submit">Update Product</button>
     </form>
+        </div>
+    </div>
     
 </body>
 </html>

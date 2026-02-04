@@ -21,6 +21,8 @@ const storeSchema = new mongoose.Schema({
     },
     isActive:Boolean,
 
+    image: String,
+
     owner:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

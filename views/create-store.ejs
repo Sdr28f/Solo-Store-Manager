@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Store</title>
+     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Create New Store</h1>
+     <nav>
+    <div id="destinations">
+        <p id="logo">Store Manager</p>
+        <a href="/stores">All Stores</a>
+    </div>
+    </nav>
+    <div class="page-container">
+        <div class="form-card">
+            <h1>Create New Store</h1>
     <form action="/Stores" method="post">
 
         <label for="businessName">businessName:</label>
@@ -24,8 +33,16 @@
          <label for="isActive">isActive:</label>
         <input type="checkbox" name="isActive" id="isActive">
 
+          <div class="form-group">
+          <label for="image">Product Image url</label>
+          <input type="text" name="image" id="image" placeholder="place image link here">
+        </div>
+
         <button type="submit">Create Store</button>
     </form>
+    
+        </div>
+    </div>
     
 </body>
 </html>

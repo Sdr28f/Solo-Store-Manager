@@ -3,19 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Details</title>
+     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+      <nav>
+    <div id="destinations">
+        <p id="logo">Store Manager</p>
+        <a href="/stores">All Stores</a>
+        <a href="/products">All Products</a>
+    </div>
+    <div class="action">
+       <a href="/auth/sign-out"><button>LogOut</button></a>
+    </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="form-card">
+               
     <h1>Product Details</h1>
-    <p>name: <%= foundProduct.name %></p>
+
+    <div class="img-placeholder">
+        <% if(foundProduct.image){ %>
+
+            <img src="<%= foundProduct.image %>" class="product.img" alt="<%= foundProduct.name %>">
+
+            <% }  else { %>
+                <span class="no-image-text">No Image Available</span>
+                <% } %>
+    </div>
+   <div id="product-details-content">
+     <p>name: <%= foundProduct.name %></p>
     <p>price: <%= foundProduct.price %></p>
     <P>quantity: <%= foundProduct.quantity %></P>
-    <p>description: <%= foundProduct.brand %></p>
+    <p>description: <%= foundProduct.description %></p>
+    <p>brand: <%= foundProduct.brand %></p>
     <p>category: <%= foundProduct.category %></p>
-    <form action="/products/delete/<%= foundProduct._id %>" method="post">
+   </div>
+   <div class="card-footer">
+        <form action="/products/delete/<%= foundProduct._id %>" method="post">
         <button type="submit">Delete Product</button>
     </form>
     <a href="/products/<%= foundProduct._id %>/edit">Edit Product</a>
     
+   </div>
+        </div>
+    </div>
+ 
+
 </body>
 </html>
